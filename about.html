@@ -1,100 +1,591 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>가이드 및 소개 - 연남 가라오케 예약 정찰제 눈탱이 완벽 예방 가이드 | 010-6279-0862</title>
-  <meta name="description" content="연남 가라오케 예약 리얼 가이드 블로그 소개. 내 돈 주고 직접 노는 진짜 연남동 밤문화 정찰제 추천 정보 제공.">
-  <style>
-    :root {
-      --primary: #2b1e17;
-      --secondary: #4e3629;
-      --accent: #d4af37;
-      --bg: #f9f6f0;
-      --text: #3e2e28;
-      --text-muted: #80685c;
-      --border: #dfd7cf;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Pretendard', sans-serif;
-      line-height: 1.8;
-    }
-    header {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid var(--border);
-    }
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: var(--primary);
-      text-decoration: none;
-    }
-    .logo span { color: var(--accent); }
-    nav { display: flex; gap: 20px; }
-    nav a { color: var(--text-muted); text-decoration: none; font-weight: 700; }
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--primary);
-      margin-bottom: 30px;
-      border-left: 4px solid var(--accent);
-      padding-left: 12px;
-    }
-    .content {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-    }
-    .content p { margin-bottom: 24px; }
-    .content h3 { color: var(--primary); font-size: 1.3rem; margin: 32px 0 16px; font-weight: 800; }
-    footer {
-      background-color: var(--primary);
-      color: #dfd7cf;
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <a href="index.html" class="logo">연남<span>YN</span> 가라오케</a>
-    <nav>
-      <a href="index.html">홈</a>
-      <a href="about.html">운영자 소개</a>
-      <a href="blog.html">로컬 칼럼</a>
-    </nav>
-  </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>연남 가라오케 정보 | 연남동 프리미엄 가라오케 예약</title>
+<meta name="description" content="연남 가라오케의 모든 정보를 한눈에. 24시간 운영, 최신 음향 시스템, 프라이빗 룸 구성, 합리적 가격대. 연남동 가라오케 예약 전 필수 확인.">
+<meta name="keywords" content="연남 가라오케 정보, 연남 가라오케 가격, 연남동 가라오케 시스템, 연남 가라오케 이용안내, 연남 가라오케 시설, 연남 가라오케 위치, 연남동 노래방 정보">
+<meta name="author" content="연남 가라오케">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="naverbot" content="index, follow">
+<meta name="subject" content="연남 가라오케 상세 정보">
+<meta name="classification" content="연남 가라오케">
+<meta name="bpaas-design-system" content="brutalist-avantgarde">
+<style>
+:root {
+  --black: #0a0a0a;
+  --white: #f5f5f5;
+  --gray-900: #1a1a1a;
+  --gray-800: #2a2a2a;
+  --gray-700: #3a3a3a;
+  --gray-600: #5a5a5a;
+  --gray-500: #7a7a7a;
+  --gray-300: #b0b0b0;
+  --gray-100: #d0d0d0;
+  --accent: #c0392b;
+  --accent-hover: #e74c3c;
+  --accent-dark: #962d22;
+  --border-thick: 4px;
+  --border-medium: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --font-mono: 'Courier New', 'IBM Plex Mono', monospace;
+  --font-sans: 'Noto Sans KR', 'Pretendard', -apple-system, sans-serif;
+  --font-heading: 'Noto Sans KR', 'Pretendard', sans-serif;
+  --max-width: 1200px;
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  <main>
-    <h2 class="section-title">연남동 밤거리 유흥 지킴이 형의 리얼 스토리</h2>
-    <div class="content">
-      <p>안녕 동생들! 연남 가라오케 예약 아카이브 블로그를 이끌고 있는 '연남동 밤문화 가이드 형'이야. 마포구 합정, 상수동에 이어 연남동 경의선숲길 일대 유흥가를 5년 넘게 드나들며 직접 지인들과 회식하며 검증한 진짜 100% 정찰제 유흥 전문가지.</p>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      <p>내가 왜 귀한 시간 쪼개가면서 <strong>연남 가라오케 예약</strong> 독립 리포트 블로그를 운영하는지 그 철학을 이야기해줄게. 연남역 주변은 예쁜 감성 식당과 루프탑으로 완전 유명한 대표 청년 상권인데, 새로 유입된 일부 비양심 노래방이나 주점들이 손님들의 거나한 술기운을 노리고 주류 가격 사기를 치는 양아치 영업을 교묘하게 감행하고 있어. 나 역시 회사 초년생 시절에 분위기에 휩쓸려 연트럴파크 근처 아무 지하 가라오케에 들어갔다가 술값을 두 배 넘게 날리고 멘탈 터졌던 아픈 트라우마가 있거든.</p>
+html {
+  scroll-behavior: smooth;
+  background: var(--black);
+}
 
-      <h3>허위 광고 완전히 여과하고 형들의 총알을 보존한다</h3>
-      <p>이 블로그는 형들이 단돈 1만 원이라도 안전하고 쾌적하게 아끼면서, 연남 최고 수준의 정통 룸 시스템과 매니저들의 마인드를 완비한 진짜 보석 같은 업소들만 필터링해주는 독립 정보 플랫폼이야. 마케팅 대행사에 원고료 전혀 안 받고 오직 사용자의 리얼 체험만 반영하고 있지.</p>
+body {
+  font-family: var(--font-sans);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-      <p>연남역 부근이나 경의선숲길 인근에서 정말 최고급 방음/사운드를 완비한 가성비 개쩌는 프라이빗 룸을 예약하고 싶다면 고민 말고 010-6279-0862 실장님 다이렉트 핫라인으로 예약 문자 한 통 날려봐. 형 가이드 보고 전화했다고 하면 바가지 절대 없고 최고의 초이스 환경을 바로 마련해줄 테니 믿고 뜨겁고 안전한 밤을 시작해봐!</p>
-    </div>
-  </main>
+a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color var(--transition);
+}
 
-  <footer>
-    <p>연남 가라오케 예약 | 예약문의: 010-6279-0862</p>
-    <p>&copy; 2026 연남동 밤문화 리얼 안내소. All rights reserved.</p>
-  </footer>
+a:hover {
+  color: var(--accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* ─── HAMBURGER MENU SYSTEM ─── */
+.hamburger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--black);
+  border-bottom: var(--border-medium) solid var(--gray-800);
+}
+
+.hamburger-menu .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.hamburger-menu .logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+}
+
+.hamburger-menu .logo .accent {
+  color: var(--accent);
+}
+
+.hamburger-menu .nav-toggle {
+  display: none;
+  background: none;
+  border: var(--border-medium) solid var(--white);
+  color: var(--white);
+  font-size: 1.2rem;
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition);
+}
+
+.hamburger-menu .nav-toggle:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.hamburger-menu .nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  list-style: none;
+}
+
+.hamburger-menu .nav-list li a {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-300);
+  transition: color var(--transition);
+  position: relative;
+  padding-bottom: var(--space-xs);
+}
+
+.hamburger-menu .nav-list li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: var(--border-thick);
+  background: var(--accent);
+  transition: width var(--transition);
+}
+
+.hamburger-menu .nav-list li a:hover::after,
+.hamburger-menu .nav-list li a.active::after {
+  width: 100%;
+}
+
+.hamburger-menu .nav-list li a.active {
+  color: var(--white);
+}
+
+.hamburger-menu .nav-list li a:hover {
+  color: var(--white);
+}
+
+/* ─── RESPONSIVE 768 ─── */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .hamburger-menu .nav-toggle {
+    display: block;
+  }
+
+  .hamburger-menu .nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: var(--gray-900);
+    border-bottom: var(--border-medium) solid var(--gray-700);
+    padding: var(--space-md) 0;
+    gap: 0;
+  }
+
+  .hamburger-menu .nav-list.open {
+    display: flex;
+  }
+
+  .hamburger-menu .nav-list li {
+    width: 100%;
+  }
+
+  .hamburger-menu .nav-list li a {
+    display: block;
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--gray-800);
+    font-size: 1rem;
+  }
+
+  .hamburger-menu .nav-list li:last-child a {
+    border-bottom: none;
+  }
+
+  .hamburger-menu .nav-list li a::after {
+    display: none;
+  }
+
+  .hamburger-menu .logo {
+    font-size: 1.2rem;
+  }
+}
+
+/* ─── PAGE HEADER ─── */
+.page-header {
+  padding: calc(80px + var(--space-2xl)) 0 var(--space-xl);
+  border-bottom: var(--border-medium) solid var(--gray-800);
+}
+
+.page-header h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.page-header h1 .accent {
+  color: var(--accent);
+}
+
+.page-header .subtitle {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--gray-500);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.page-header .breadcrumb {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.page-header .breadcrumb a {
+  color: var(--gray-500);
+}
+
+.page-header .breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.page-header .breadcrumb .sep {
+  color: var(--gray-700);
+}
+
+/* ─── SECTION COMMON ─── */
+.section {
+  padding: var(--space-2xl) 0;
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-sm);
+  font-weight: 700;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-lg);
+  line-height: 1.2;
+}
+
+.section-title .accent {
+  color: var(--accent);
+}
+
+.section-desc {
+  font-size: 1rem;
+  color: var(--gray-300);
+  line-height: 1.8;
+  max-width: 720px;
+  margin-bottom: var(--space-lg);
+}
+
+/* ─── GRID 2 ─── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* ─── GRID 3 ─── */
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* ─── CARD ─── */
+.card {
+  background: var(--gray-900);
+  border: var(--border-medium) solid var(--gray-800);
+  padding: var(--space-lg);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card .card-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+  color: var(--accent);
+}
+
+.card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-sm);
+  color: var(--white);
+}
+
+.card p,
+.card li {
+  font-size: 0.9rem;
+  color: var(--gray-300);
+  line-height: 1.7;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  padding: var(--space-xs) 0;
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ─── DATA CARD ─── */
+.data-card {
+  background: var(--gray-900);
+  border: var(--border-thick) solid var(--gray-800);
+  padding: var(--space-lg);
+  text-align: center;
+  transition: border-color var(--transition);
+}
+
+.data-card:hover {
+  border-color: var(--accent);
+}
+
+.data-card .data-value {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.data-card .data-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.data-card .data-desc {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  margin-top: var(--space-sm);
+}
+
+/* ─── TABLE ─── */
+.data-table-wrap {
+  overflow-x: auto;
+  border: var(--border-medium) solid var(--gray-800);
+  background: var(--gray-900);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.data-table thead {
+  background: var(--gray-800);
+}
+
+.data-table th {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: var(--space-md);
+  text-align: left;
+  color: var(--gray-300);
+  font-weight: 700;
+  border-bottom: var(--border-thick) solid var(--gray-700);
+}
+
+.data-table td {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--gray-800);
+  color: var(--gray-200);
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background: rgba(192, 57, 43, 0.05);
+}
+
+.data-table .highlight {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ─── INFO LIST ─── */
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+
+.info-list li {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--gray-800);
+  align-items: flex-start;
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.info-list .info-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  min-width: 100px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.info-list .info-content {
+  color: var(--gray-200);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ─── FAQ ─── */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.faq-item {
+  background: var(--gray-900);
+  border: var(--border-medium) solid var(--gray-800);
+  transition: border-color var(--transition);
+}
+
+.faq-item:hover {
+  border-color: var(--gray-700);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: color var(--transition);
+}
+
+.faq-question:hover {
+  color: var(--accent);
+}
+
+.faq-question .faq-toggle {
+  font-size: 1.2rem;
+  color: var(--accent);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-toggle {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0 var(--space-lg) var(--space-lg);
+  color: var(--gray-300);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  display: none;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  background: var(--gray-900);
+  border-top: var(--border-thick) solid var(--accent);
+  border-bottom:
 </body>
 </html>
