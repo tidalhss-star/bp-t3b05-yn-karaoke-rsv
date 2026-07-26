@@ -1,592 +1,383 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>연남 가라오케 정보 | 연남동 프리미엄 가라오케 예약</title>
-<meta name="description" content="연남 가라오케의 모든 정보를 한눈에. 24시간 운영, 최신 음향 시스템, 프라이빗 룸 구성, 합리적 가격대. 연남동 가라오케 예약 전 필수 확인.">
-<meta name="keywords" content="연남 가라오케 정보, 연남 가라오케 가격, 연남동 가라오케 시스템, 연남 가라오케 이용안내, 연남 가라오케 시설, 연남 가라오케 위치, 연남동 노래방 정보">
-<meta name="author" content="연남 가라오케">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="naverbot" content="index, follow">
-<meta name="subject" content="연남 가라오케 상세 정보">
-<meta name="classification" content="연남 가라오케">
-<meta name="bpaas-design-system" content="brutalist-avantgarde">
-<style>
-:root {
-  --black: #0a0a0a;
-  --white: #f5f5f5;
-  --gray-900: #1a1a1a;
-  --gray-800: #2a2a2a;
-  --gray-700: #3a3a3a;
-  --gray-600: #5a5a5a;
-  --gray-500: #7a7a7a;
-  --gray-300: #b0b0b0;
-  --gray-100: #d0d0d0;
-  --accent: #c0392b;
-  --accent-hover: #e74c3c;
-  --accent-dark: #962d22;
-  --border-thick: 4px;
-  --border-medium: 2px;
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 16px;
-  --space-lg: 32px;
-  --space-xl: 48px;
-  --space-2xl: 64px;
-  --font-mono: 'Courier New', 'IBM Plex Mono', monospace;
-  --font-sans: 'Noto Sans KR', 'Pretendard', -apple-system, sans-serif;
-  --font-heading: 'Noto Sans KR', 'Pretendard', sans-serif;
-  --max-width: 1200px;
-  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  background: var(--black);
-}
-
-body {
-  font-family: var(--font-sans);
-  background: var(--black);
-  color: var(--white);
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  color: var(--white);
-  text-decoration: none;
-  transition: color var(--transition);
-}
-
-a:hover {
-  color: var(--accent);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
-}
-
-/* ─── HAMBURGER MENU SYSTEM ─── */
-.hamburger-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background: var(--black);
-  border-bottom: var(--border-medium) solid var(--gray-800);
-}
-
-.hamburger-menu .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: var(--space-md);
-  padding-bottom: var(--space-md);
-}
-
-.hamburger-menu .logo {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  color: var(--white);
-  line-height: 1;
-}
-
-.hamburger-menu .logo .accent {
-  color: var(--accent);
-}
-
-.hamburger-menu .nav-toggle {
-  display: none;
-  background: none;
-  border: var(--border-medium) solid var(--white);
-  color: var(--white);
-  font-size: 1.2rem;
-  padding: var(--space-sm) var(--space-md);
-  cursor: pointer;
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all var(--transition);
-}
-
-.hamburger-menu .nav-toggle:hover {
-  background: var(--white);
-  color: var(--black);
-}
-
-.hamburger-menu .nav-list {
-  display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-  list-style: none;
-}
-
-.hamburger-menu .nav-list li a {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--gray-300);
-  transition: color var(--transition);
-  position: relative;
-  padding-bottom: var(--space-xs);
-}
-
-.hamburger-menu .nav-list li a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: var(--border-thick);
-  background: var(--accent);
-  transition: width var(--transition);
-}
-
-.hamburger-menu .nav-list li a:hover::after,
-.hamburger-menu .nav-list li a.active::after {
-  width: 100%;
-}
-
-.hamburger-menu .nav-list li a.active {
-  color: var(--white);
-}
-
-.hamburger-menu .nav-list li a:hover {
-  color: var(--white);
-}
-
-/* ─── RESPONSIVE 768 ─── */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 var(--space-md);
-  }
-
-  .hamburger-menu .nav-toggle {
-    display: block;
-  }
-
-  .hamburger-menu .nav-list {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background: var(--gray-900);
-    border-bottom: var(--border-medium) solid var(--gray-700);
-    padding: var(--space-md) 0;
-    gap: 0;
-  }
-
-  .hamburger-menu .nav-list.open {
-    display: flex;
-  }
-
-  .hamburger-menu .nav-list li {
-    width: 100%;
-  }
-
-  .hamburger-menu .nav-list li a {
-    display: block;
-    padding: var(--space-md) var(--space-lg);
-    border-bottom: 1px solid var(--gray-800);
-    font-size: 1rem;
-  }
-
-  .hamburger-menu .nav-list li:last-child a {
-    border-bottom: none;
-  }
-
-  .hamburger-menu .nav-list li a::after {
-    display: none;
-  }
-
-  .hamburger-menu .logo {
-    font-size: 1.2rem;
-  }
-}
-
-/* ─── PAGE HEADER ─── */
-.page-header {
-  padding: calc(80px + var(--space-2xl)) 0 var(--space-xl);
-  border-bottom: var(--border-medium) solid var(--gray-800);
-}
-
-.page-header h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  text-transform: uppercase;
-  margin-bottom: var(--space-md);
-}
-
-.page-header h1 .accent {
-  color: var(--accent);
-}
-
-.page-header .subtitle {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: var(--gray-500);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.page-header .breadcrumb {
-  display: flex;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--gray-600);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.page-header .breadcrumb a {
-  color: var(--gray-500);
-}
-
-.page-header .breadcrumb a:hover {
-  color: var(--accent);
-}
-
-.page-header .breadcrumb .sep {
-  color: var(--gray-700);
-}
-
-/* ─── SECTION COMMON ─── */
-.section {
-  padding: var(--space-2xl) 0;
-}
-
-.section-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: var(--space-sm);
-  font-weight: 700;
-}
-
-.section-title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--space-lg);
-  line-height: 1.2;
-}
-
-.section-title .accent {
-  color: var(--accent);
-}
-
-.section-desc {
-  font-size: 1rem;
-  color: var(--gray-300);
-  line-height: 1.8;
-  max-width: 720px;
-  margin-bottom: var(--space-lg);
-}
-
-/* ─── GRID 2 ─── */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
-}
-
-@media (max-width: 768px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-}
-
-/* ─── GRID 3 ─── */
-.grid-3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: var(--space-lg);
-}
-
-@media (max-width: 768px) {
-  .grid-3 {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-}
-
-/* ─── CARD ─── */
-.card {
-  background: var(--gray-900);
-  border: var(--border-medium) solid var(--gray-800);
-  padding: var(--space-lg);
-  transition: border-color var(--transition), transform var(--transition);
-}
-
-.card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.card .card-icon {
-  font-size: 2rem;
-  margin-bottom: var(--space-md);
-  color: var(--accent);
-}
-
-.card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin-bottom: var(--space-sm);
-  color: var(--white);
-}
-
-.card p,
-.card li {
-  font-size: 0.9rem;
-  color: var(--gray-300);
-  line-height: 1.7;
-}
-
-.card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.card ul li {
-  padding: var(--space-xs) 0;
-  padding-left: var(--space-md);
-  position: relative;
-}
-
-.card ul li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-}
-
-/* ─── DATA CARD ─── */
-.data-card {
-  background: var(--gray-900);
-  border: var(--border-thick) solid var(--gray-800);
-  padding: var(--space-lg);
-  text-align: center;
-  transition: border-color var(--transition);
-}
-
-.data-card:hover {
-  border-color: var(--accent);
-}
-
-.data-card .data-value {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 900;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: var(--space-xs);
-}
-
-.data-card .data-label {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--gray-500);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.data-card .data-desc {
-  font-size: 0.85rem;
-  color: var(--gray-400);
-  margin-top: var(--space-sm);
-}
-
-/* ─── TABLE ─── */
-.data-table-wrap {
-  overflow-x: auto;
-  border: var(--border-medium) solid var(--gray-800);
-  background: var(--gray-900);
-}
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-.data-table thead {
-  background: var(--gray-800);
-}
-
-.data-table th {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: var(--space-md);
-  text-align: left;
-  color: var(--gray-300);
-  font-weight: 700;
-  border-bottom: var(--border-thick) solid var(--gray-700);
-}
-
-.data-table td {
-  padding: var(--space-md);
-  border-bottom: 1px solid var(--gray-800);
-  color: var(--gray-200);
-}
-
-.data-table tr:last-child td {
-  border-bottom: none;
-}
-
-.data-table tr:hover td {
-  background: rgba(192, 57, 43, 0.05);
-}
-
-.data-table .highlight {
-  color: var(--accent);
-  font-weight: 700;
-}
-
-/* ─── INFO LIST ─── */
-.info-list {
-  list-style: none;
-  padding: 0;
-}
-
-.info-list li {
-  display: flex;
-  gap: var(--space-md);
-  padding: var(--space-md) 0;
-  border-bottom: 1px solid var(--gray-800);
-  align-items: flex-start;
-}
-
-.info-list li:last-child {
-  border-bottom: none;
-}
-
-.info-list .info-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  min-width: 100px;
-  flex-shrink: 0;
-  padding-top: 2px;
-}
-
-.info-list .info-content {
-  color: var(--gray-200);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-/* ─── FAQ ─── */
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.faq-item {
-  background: var(--gray-900);
-  border: var(--border-medium) solid var(--gray-800);
-  transition: border-color var(--transition);
-}
-
-.faq-item:hover {
-  border-color: var(--gray-700);
-}
-
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-lg);
-  cursor: pointer;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--white);
-  background: none;
-  border: none;
-  width: 100%;
-  text-align: left;
-  transition: color var(--transition);
-}
-
-.faq-question:hover {
-  color: var(--accent);
-}
-
-.faq-question .faq-toggle {
-  font-size: 1.2rem;
-  color: var(--accent);
-  transition: transform var(--transition);
-  flex-shrink: 0;
-}
-
-.faq-item.open .faq-toggle {
-  transform: rotate(45deg);
-}
-
-.faq-answer {
-  padding: 0 var(--space-lg) var(--space-lg);
-  color: var(--gray-300);
-  font-size: 0.9rem;
-  line-height: 1.8;
-  display: none;
-}
-
-.faq-item.open .faq-answer {
-  display: block;
-}
-
-/* ─── CTA ─── */
-.cta-section {
-  background: var(--gray-900);
-  border-top: var(--border-thick) solid var(--accent);
-  border-bottom:
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-raw-concrete">
+    <title>연남 가라오케 정보 — 운영 시간, 요금, 이용 안내</title>
+    <meta name="description" content="연남 지역 가라오케의 상세 정보를 확인하고 최적의 장소를 예약하세요. 운영 시간, 예상 요금, 주요 시설 및 이용 수칙을 제공합니다.">
+    <meta name="keywords" content="연남 가라오케 정보, 연남 노래방 시간, 연남 가라오케 요금, 연남 가라오케 시설, 연남 가라오케 이용 안내">
+    <link rel="canonical" href="https://yeonnam-song-review.node-link.shop/about.html">
+    <!-- OG Meta Tags -->
+    <meta property="og:title" content="연남 가라오케 정보 — 시간, 요금, 이용 가이드">
+    <meta property="og:description" content="연남 지역 가라오케의 상세 정보를 확인하고 최적의 장소를 예약하세요. 운영 시간, 예상 요금, 주요 시설 및 이용 수칙을 제공합니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yeonnam-song-review.node-link.shop/about.html">
+    <meta property="og:image" content="https://yeonnam-song-review.node-link.shop/og-image.jpg"> <!-- Placeholder for actual image -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="연남 가라오케 정보 — 시간, 요금, 이용 가이드">
+    <meta name="twitter:description" content="연남 지역 가라오케의 상세 정보를 확인하고 최적의 장소를 예약하세요. 운영 시간, 예상 요금, 주요 시설 및 이용 수칙을 제공합니다.">
+    <meta name="twitter:image" content="https://yeonnam-song-review.node-link.shop/twitter-image.jpg"> <!-- Placeholder for actual image -->
+    <style>
+        /* Color Theme: raw-concrete */
+        :root {
+            --color-primary: #2c3e50;
+            --color-secondary: #7f8c8d;
+            --color-accent: #e74c3c;
+            --color-background: #ecf0f1;
+            --color-text: #34495e;
+            --color-border: #bdc3c7;
+            --color-card-bg: #ffffff;
+            --color-link: #2980b9;
+            --color-link-hover: #1f618d;
+        }
+
+        /* Design System: Brutalist Avantgarde */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .random-container-wrapper {
+            width: 100%;
+            max-width: 1200px; /* Increased max-width for better content spread */
+            margin: 0 auto;
+            padding: 0 20px; /* Add horizontal padding */
+            box-sizing: border-box;
+        }
+
+        .random-container {
+            width: 100%;
+            margin: 20px 0; /* Add vertical margin */
+            padding: 30px; /* Increased padding for more breathing room */
+            background-color: var(--color-card-bg);
+            border: 2px solid var(--color-border);
+            box-shadow: 5px 5px 0px var(--color-accent); /* More pronounced shadow */
+            box-sizing: border-box;
+        }
+
+        .random-section {
+            margin-bottom: 40px; /* Increased bottom margin for sections */
+        }
+
+        .random-section:last-child {
+            margin-bottom: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Arial Black', Gadget, sans-serif; /* More impactful font for headings */
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+            line-height: 1.3;
+            font-weight: 900; /* Boldest weight */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Larger font size for main title */
+            text-align: center;
+            margin-bottom: 40px; /* Increased margin below H1 */
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 2px solid var(--color-accent); /* Accent border for section titles */
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: var(--color-secondary); /* Secondary color for sub-section titles */
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em; /* Slightly larger paragraph text */
+        }
+
+        a {
+            color: var(--color-link);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-link-hover);
+            text-decoration: underline;
+        }
+
+        /* Navigation Styles */
+        .nav-wrapper {
+            background-color: var(--color-primary);
+            color: #ffffff;
+            padding: 15px 0;
+            margin-bottom: 40px; /* Space below nav */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .nav-brand {
+            font-size: 1.8em;
+            font-weight: 900;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px; /* Increased spacing between nav items */
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 4px; /* Slight rounding */
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--color-primary); /* Text color on hover */
+            background-color: #ffffff; /* Background on hover */
+        }
+        
+        /* Specific Styles for Info Page */
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for info cards */
+            gap: 30px; /* Space between grid items */
+        }
+
+        .info-card {
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-border);
+            padding: 25px;
+            box-shadow: 3px 3px 0px var(--color-secondary); /* Subtler shadow for cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 5px 5px 0px var(--color-accent);
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--color-primary);
+            border-bottom: none; /* Remove border from card titles */
+        }
+
+        .info-card p {
+            margin-bottom: 10px;
+            font-size: 1em; /* Standard paragraph size within cards */
+        }
+        
+        .info-card ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            margin-bottom: 8px;
+        }
+
+        .faq-section {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed var(--color-border);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+            cursor: pointer; /* Indicate it's clickable */
+            position: relative;
+            padding-left: 30px; /* Space for icon */
+        }
+
+        .faq-question::before {
+            content: '+'; /* Plus icon */
+            position: absolute;
+            left: 0;
+            font-size: 1.4em;
+            color: var(--color-accent);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::before {
+            transform: rotate(45deg); /* Rotate for 'X' effect */
+        }
+
+        .faq-answer {
+            font-size: 1em;
+            color: var(--color-text);
+            margin-left: 30px; /* Indent answer */
+            display: none; /* Hidden by default */
+        }
+        
+        .footer-wrapper {
+            margin-top: auto; /* Push footer to the bottom */
+            background-color: var(--color-primary);
+            color: #ffffff;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="nav-wrapper">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">연남송</a>
+            <ul class="nav-links">
+                <li><a href="/">홈</a></li>
+                <li><a href="/recommend">추천</a></li>
+                <li><a href="/info" class="active">정보</a></li>
+                <li><a href="/contact">문의</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="random-container-wrapper">
+        <div class="random-container">
+            <h1>연남 가라오케 상세 정보</h1>
+
+            <div class="random-section">
+                <h2>운영 시간 및 휴무일</h2>
+                <p>연남 지역의 가라오케 업소들은 일반적으로 주말 및 공휴일에 운영 시간이 연장되며, 평일에는 다소 일찍 마감될 수 있습니다. 정확한 운영 시간은 각 업소별로 상이하므로, 방문 전 반드시 확인이 필요합니다. 일부 업소는 특정 요일에 정기 휴무를 가질 수 있습니다. 최신 정보는 공식 웹사이트나 전화 문의를 통해 확인하시는 것을 권장합니다.</p>
+                <div class="info-section">
+                    <div class="info-card">
+                        <h3>평일 운영 시간</h3>
+                        <p>예시: 오후 6시 ~ 익일 새벽 2시</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>주말/공휴일 운영 시간</h3>
+                        <p>예시: 오후 5시 ~ 익일 새벽 4시</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>정기 휴무일</h3>
+                        <p>매주 월요일 (업소별 상이)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="random-section">
+                <h2>예상 요금 및 결제</h2>
+                <p>가라오케 이용 요금은 일반적으로 시간당 또는 인당 기준으로 책정됩니다. 시간당 요금제는 방 크기 및 이용 시간에 따라 변동되며, 인당 요금제는 포함된 서비스(음료, 안주 등)에 따라 달라질 수 있습니다. 주말 및 피크 타임에는 할증 요금이 적용될 수 있으니 참고하시기 바랍니다. 대부분의 업소는 현금 및 카드 결제를 지원합니다.</p>
+                <div class="info-section">
+                    <div class="info-card">
+                        <h3>시간당 기본 요금</h3>
+                        <p>예시: 30,000원 ~ 60,000원 (방 크기별)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>인당 추가 요금</h3>
+                        <p>예시: 10,000원 ~ 20,000원 (음료/안주 포함)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>주말/피크타임 할증</h3>
+                        <p>10% ~ 20% 추가될 수 있음</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="random-section">
+                <h2>주요 시설 및 서비스</h2>
+                <p>연남 지역 가라오케는 다양한 규모와 테마의 룸을 갖추고 있으며, 최신 음향 및 조명 시스템을 구비하고 있습니다. 일부 고급 업소에서는 최신곡 업데이트, 개인 맞춤형 음료 서비스, 안주 메뉴 강화 등 차별화된 서비스를 제공합니다. 예약 시 원하는 시설이나 서비스 유무를 미리 확인하는 것이 좋습니다.</p>
+                <div class="info-card">
+                    <h3>구비 시설</h3>
+                    <ul>
+                        <li>다양한 규모의 개별 룸</li>
+                        <li>최신식 음향 및 반주기 시스템</li>
+                        <li>고품질 조명 및 특수 효과</li>
+                        <li>쾌적한 냉난방 시설</li>
+                        <li>무선 인터넷 (Wi-Fi)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="random-section faq-section">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+                <div class="faq-item">
+                    <h3 class="faq-question">이용 전 예약은 필수인가요?</h3>
+                    <p class="faq-answer">주말이나 저녁 시간대에는 예약이 필수적일 수 있습니다. 원활한 이용을 위해 사전 예약하시는 것을 권장합니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">외부 음식물 반입이 가능한가요?</h3>
+                    <p class="faq-answer">대부분의 가라오케 업소는 외부 음식물 반입을 엄격히 제한하고 있습니다. 자세한 규정은 업소에 문의하시기 바랍니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">주류 및 음료는 어떤 종류가 제공되나요?</h3>
+                    <p class="faq-answer">업소별로 주류 및 음료 메뉴가 다양합니다. 일반적인 맥주, 소주 외에도 칵테일, 소프트 드링크 등이 준비되어 있으며, 일부 업소에서는 특별 메뉴를 제공하기도 합니다.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">주차 공간은 마련되어 있나요?</h3>
+                    <p class="faq-answer">일부 업소는 자체 주차 공간을 보유하고 있거나 제휴 주차장을 운영합니다. 방문 전 주차 가능 여부를 확인하는 것이 좋습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-wrapper">
+        <div class="random-container-wrapper">
+            <p>&copy; 2023 연남송. All rights reserved.</p>
+            <p>본 정보는 일반적인 가이드라인이며, 실제 업소 정보와 다를 수 있습니다. 방문 전 반드시 최신 정보를 확인하시기 바랍니다.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                item.classList.toggle('active');
+                if (item.classList.contains('active')) {
+                    answer.style.display = 'block';
+                } else {
+                    answer.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
