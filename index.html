@@ -1,464 +1,397 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>블로그 - 연남 가라오케 예약 시스템 가이드</title>
-    <meta name="description" content="연남 가라오케 예약 시스템의 진화와 최적 이용법을 분석한 공식 블로그. 데이터 기반 인사이트와 전문가 조언을 제공합니다.">
-    <meta name="keywords" content="연남 가라오케 예약, 블로그, 가라오케 시스템, 연남동 가라오케 예약 방법, 프라이빗 파티 팁">
-    <meta name="author" content="연남 가라오케">
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
-    <meta name="naverbot" content="index, follow">
-    <meta name="subject" content="연남 가라오케 예약 블로그">
-    <meta name="classification" content="연남 가라오케, 블로그">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <style>
-        /* Brutalist-Avantgarde Design System - v2.3.1 */
-        :root {
-            --primary: #1a1a2e;
-            --secondary: #e94560;
-            --accent: #0f3460;
-            --brutal-bg: #f4f4f4;
-            --brutal-text: #1a1a2e;
-            --brutal-border: #2b2b2b;
-            --brutal-shadow: 12px 12px 0 rgba(26,26,46,0.3);
-            --brutal-card-bg: #fff;
-            --brutal-font: 'Courier New', Courier, monospace;
-            --brutal-heading: 'Impact', 'Arial Black', sans-serif;
-            --brutal-spacing: 0.15em;
-            --brutal-line-height: 1.8;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--brutal-font);
-            color: var(--brutal-text);
-            background: var(--brutal-bg);
-            line-height: var(--brutal-line-height);
-            letter-spacing: var(--brutal-spacing);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* 헤더 */
-        header {
-            background: var(--primary);
-            color: #fff;
-            padding: 1.2rem 0;
-            border-bottom: 6px solid var(--secondary);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo a {
-            font-family: var(--brutal-heading);
-            font-size: 2rem;
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            transition: color 0.3s;
-        }
-
-        .logo a:hover {
-            color: var(--secondary);
-        }
-
-        /* 네비게이션 */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            border-bottom-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        /* 햄버거 메뉴 - 모바일 대응 */
-        .hamburger-menu {
-            display: none;  /* JS로 토글 가능 */
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 2000;
-            background: var(--secondary);
-            color: #fff;
-            padding: 12px 16px;
-            border: 3px solid var(--brutal-border);
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
-        }
-
-        .hamburger-menu:hover {
-            background: #d4384f;
-        }
-
-        /* 히어로 섹션 */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: #fff;
-            padding: 6rem 0 4rem;
-            text-align: center;
-            border-bottom: 8px solid var(--secondary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::after {
-            content: 'BLOG';
-            font-family: var(--brutal-heading);
-            font-size: 16vw;
-            color: rgba(255,255,255,0.03);
-            position: absolute;
-            right: -5vw;
-            bottom: -5vw;
-            pointer-events: none;
-            line-height: 1;
-        }
-
-        .hero h1 {
-            font-family: var(--brutal-heading);
-            font-size: 4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-            text-shadow: 6px 6px 0 rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-            color: #ddd;
-        }
-
-        /* 메인 콘텐츠 */
-        main {
-            background: var(--brutal-bg);
-        }
-
-        .section-title {
-            font-family: var(--brutal-heading);
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin: 3rem 0 2rem;
-            border-left: 12px solid var(--secondary);
-            padding-left: 1.5rem;
-            color: var(--primary);
-        }
-
-        /* 블로그 포스트 */
-        .blog-post {
-            background: var(--brutal-card-bg);
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            border: 4px solid var(--brutal-border);
-            box-shadow: var(--brutal-shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .blog-post:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 16px 16px 0 rgba(26,26,46,0.4);
-        }
-
-        .blog-post h2 {
-            font-family: var(--brutal-heading);
-            font-size: 1.8rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.8rem;
-        }
-
-        .blog-meta {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .blog-meta span {
-            background: var(--brutal-bg);
-            padding: 0.3rem 0.8rem;
-            border: 2px solid var(--brutal-border);
-        }
-
-        .blog-post p {
-            margin-bottom: 1.2rem;
-            text-align: justify;
-        }
-
-        .blog-post blockquote {
-            border-left: 6px solid var(--secondary);
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            background: #f9f9f9;
-            font-style: italic;
-            font-size: 1.1rem;
-            border: 2px solid var(--brutal-border);
-            border-left-width: 8px;
-        }
-
-        .data-highlight {
-            display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            padding: 0.2rem 0.6rem;
-            font-weight: bold;
-            font-size: 0.9rem;
-            border: 2px solid var(--brutal-border);
-        }
-
-        .blog-post ul {
-            margin: 1.2rem 0 1.2rem 2rem;
-            list-style: square;
-        }
-
-        .blog-post ul li {
-            margin-bottom: 0.6rem;
-        }
-
-        /* FAQ 섹션 */
-        .faq-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 2rem 0 4rem;
-        }
-
-        .faq-item {
-            background: var(--brutal-card-bg);
-            padding: 1.8rem;
-            border: 4px solid var(--brutal-border);
-            box-shadow: 8px 8px 0 rgba(26,26,46,0.2);
-        }
-
-        .faq-item h3 {
-            font-family: var(--brutal-heading);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.8rem;
-            color: var(--secondary);
-        }
-
-        .faq-item p {
-            font-size: 0.9rem;
-            color: #333;
-        }
-
-        /* 푸터 */
-        footer {
-            background: var(--primary);
-            color: #aaa;
-            padding: 3rem 0 2rem;
-            border-top: 6px solid var(--secondary);
-            text-align: center;
-        }
-
-        footer .container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
-        }
-
-        footer a {
-            color: var(--secondary);
-            text-decoration: none;
-            border-bottom: 1px dotted;
-        }
-
-        footer a:hover {
-            color: #fff;
-            border-bottom-color: #fff;
-        }
-
-        .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .footer-nav a {
-            color: #ccc;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        .footer-nav a:hover {
-            color: var(--secondary);
-        }
-
-        /* 반응형 */
-        @media (max-width: 768px) {
-            .responsive-768 {
-                /* 768px 이하 대응 패턴 */
-            }
-
-            header .container {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 0 20px;
-            }
-
-            nav ul {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav ul li a {
-                font-size: 0.7rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .blog-post {
-                padding: 1.5rem;
-            }
-
-            .blog-post h2 {
-                font-size: 1.4rem;
-            }
-
-            .faq-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hamburger-menu {
-                display: block;
-            }
-
-            .footer-nav {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            .logo a {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .blog-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="bpaas-design-system" content="brutalist-avantgarde">
+  <meta name="bpaas-design-theme" content="kr-neon-void">
+  <title>연남 가라오케 예약 — 마지막 인상을 좌우하는 정산·연장·기록 가이드</title>
+  <meta name="description" content="연남 가라오케 예약, 여러 곳을 비교 중이라면 마무리 단계에서 갈리는 실제 만족도를 확인하세요. 정산 방식 사전 합의, 연장·조기 종료 처리, 다음 방문을 위한 기록 활용까지 정리했습니다.">
+  <meta name="keywords" content="연남 가라오케 예약, 연남 가라오케, 연남 노래방, 연남동 가라오케, 가라오케 예약 팁">
   <link rel="canonical" href="https://yeonnam-song-review.node-link.shop/">
+  <meta property="og:title" content="연남 가라오케 예약 — 마지막 5분을 바꾸는 정산과 연장 가이드">
+  <meta property="og:description" content="연남 가라오케 예약 전, 비교 중이라면 이 지점을 확인하세요. 정산 방식, 연장·조기 종료, 다음 방문 기록까지.">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://yeonnam-song-review.node-link.shop/">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="연남 가라오케 예약 — 마지막 5분을 좌우하는 정산과 연장 가이드">
+  <meta name="twitter:description" content="연남 가라오케 예약 전, 비교 중이라면 이 지점을 확인하세요. 정산 방식, 연장·조기 종료, 그리고 다음 방문에 남길 기록까지.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Impact, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f0f0f0;
+      color: #000000;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    .q-grid-tsx5 {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background: #ffffff;
+      border-bottom: 3px solid #000000;
+      padding: 24px 0 0 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .x-card-71gk-block {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .x-card-71gk {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      color: #000000;
+      background: #ff3b00;
+      display: inline-block;
+      padding: 4px 16px;
+      border: 3px solid #000000;
+      margin-bottom: 8px;
+      transform: rotate(-1deg);
+    }
+    nav {
+      background: #000000;
+      width: 100%;
+      padding: 12px 0;
+      border-top: 3px solid #ff3b00;
+      border-bottom: 3px solid #ff3b00;
+    }
+    .k-nav-bz6r-list {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .k-nav-bz6r-list a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.1s;
+    }
+    .k-nav-bz6r-list a:hover {
+      border-bottom: 3px solid #ff3b00;
+    }
+    .hamburger {
+      display: none;
+      background: none;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      font-size: 2rem;
+      padding: 4px 12px;
+      cursor: pointer;
+      background: #000000;
+    }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+        margin: 0 auto;
+      }
+      .k-nav-bz6r-list {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 0;
+      }
+      .k-nav-bz6r-list.active {
+        display: flex;
+      }
+    }
+    main {
+      padding: 32px 0 80px 0;
+    }
+    .m-nav-u3n1-col {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 32px;
+      margin-top: 32px;
+    }
+    @media (max-width: 768px) {
+      .m-nav-u3n1-col {
+        grid-template-columns: 1fr;
+      }
+    }
+    article {
+      background: #ffffff;
+      border: 3px solid #000000;
+      padding: 48px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+      border-radius: 2px;
+    }
+    aside {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .n-body-wtal-card {
+      background: #ff3b00;
+      color: #ffffff;
+      border: 3px solid #000000;
+      padding: 24px;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+    .n-body-wtal-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      border-bottom: 3px solid #000000;
+      padding-bottom: 8px;
+    }
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      border-left: 12px solid #ff3b00;
+      padding-left: 24px;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 48px;
+      margin-bottom: 24px;
+      border-bottom: 3px solid #000000;
+      display: inline-block;
+      padding-bottom: 4px;
+      text-transform: uppercase;
+    }
+    p {
+      margin-bottom: 24px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 1.1rem;
+    }
+    .x-grid-u2on {
+      background: #000000;
+      color: #ffffff;
+      padding: 16px;
+      border: 3px solid #ff3b00;
+      margin: 32px 0;
+      font-weight: 700;
+      transform: rotate(-0.5deg);
+    }
+    .k-nav-nh1w-section {
+      margin-top: 80px;
+      background: #ffffff;
+      border: 3px solid #000000;
+      padding: 48px;
+    }
+    .faq-item {
+      margin-bottom: 32px;
+      border-bottom: 3px solid #f0f0f0;
+      padding-bottom: 16px;
+    }
+    .faq-question {
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: #ff3b00;
+      margin-bottom: 8px;
+    }
+    footer {
+      background: #000000;
+      color: #ffffff;
+      padding: 48px 0;
+      border-top: 6px solid #ff3b00;
+      margin-top: 80px;
+    }
+    .n-list-4zoj-bio {
+      background: #ffffff;
+      color: #000000;
+      border: 3px solid #000000;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .n-list-4zoj-name {
+      font-weight: 900;
+      font-size: 1.4rem;
+    }
+    button, .q-head-95f8 {
+      background: #ff3b00;
+      color: #ffffff;
+      border: 3px solid #000000;
+      padding: 12px 24px;
+      font-weight: 900;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      article { padding: 24px; }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="q-grid-tsx5">
+      <div class="x-card-71gk-block">
+        <span class="x-card-71gk">연남 가라오케 예약</span>
+      </div>
+    </div>
+    <nav>
+      <button class="hamburger" id="hamburger-toggle">☰</button>
+      <ul class="k-nav-bz6r-list" id="nav-menu">
+        <li><a href="#">홈</a></li>
+        <li><a href="#">정산 팁</a></li>
+        <li><a href="#">연장 규칙</a></li>
+        <li><a href="#">비교 포인트</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- 헤더 -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="/">연남 가라오케</a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="/">홈</a></li>
-                    <li><a href="/about">소개</a></li>
-                    <li><a href="/reservation">예약</a></li>
-                    <li><a href="/blog" class="active">블로그</a></li>
-                    <li><a href="/contact">연락처</a></li>
-                </ul>
-            </nav>
+  <main class="q-grid-tsx5">
+    <div class="m-nav-u3n1-col">
+      <article>
+        <h1>마지막 5분이 결정한다: 연남 가라오케 예약 전 확인할 정산·연장·기록</h1>
+        <p>이미 몇 군데 연남 쪽 가게들은 눈여겨보셨을 겁니다. 가격이나 방 컨디션은 비슷해 보여도, 막상 자리가 끝나는 순간 느껴지는 건 완전히 다르더라고요. 결국 인상은 마무리에서 결정되니까요.</p>
+        <span aria-hidden="true" data-t="A3F8C21B">●</span>
+        <p>정산 방식을 미리 정해두는 것, 단순히 계산을 빨리 하는 게 아니에요. <strong>“우리가 어떻게 나눌지”</strong>를 서로 눈치 보지 않고 정해두면, 마지막 10분을 온전히 노래와 분위기로 채울 수 있습니다. 복잡하게 엑셀 켜는 대신, 총액을 미리 공유하고 더치페이 앱을 딱 하나 열어두는 정도로 충분해요.</p>
+
+        <div class="x-grid-u2on">
+          ⚡️ 연남 가라오케 예약 전 체크: 정산 방식 합의 → 연장/조기 종료 규칙 확인 → 다음 방문용 메모
         </div>
-        <!-- 햄버거 메뉴 버튼 (모바일에서 활성화) -->
-        <div class="hamburger-menu" onclick="alert('모바일 메뉴 토글 - 실제 구현 필요')">☰</div>
-    </header>
 
-    <!-- 히어로 섹션 -->
-    <section class="hero">
-        <div class="container">
-            <h1>연남 가라오케 예약 시스템 블로그</h1>
-            <p>데이터 기반 인사이트와 전문가 조언으로 완벽한 가라오케 경험을 설계하세요. 연남동 대표 브루탈리스트 공간의 예약 노하우를 공개합니다.</p>
+        <h2>정산 방식을 미리 정해두는 이유</h2>
+        <p>여러 곳을 비교 중인 분이라면, 이 부분에서 업체별 차이를 느낄 수 있어요. 어떤 곳은 시간이 오버될 때 분 단위로 계산해주고, 어떤 곳은 10분만 넘어도 1시간을 받기도 하거든요. 예약할 때 "정산 기준이 어떻게 되나요?" 한마디만 해도, 나중에 기분 잡치는 일이 확 줄어들어요.</p>
+        <p>또, 인원이 많을수록 중간에 합류하는 친구나 일찍 가는 사람이 생기기 마련이에요. 그때마다 복잡하게 정산하려면 흐름이 깨져요. 차라리 입장할 때 전체 금액을 한 번 알리고, 앱으로 1/N 하는 걸 디폴트로 삼아보세요. 결과적으로 <strong>마지막에 웃으면서 나오는 확률</strong>이 훨씬 높아져요.</p>
+
+        <h2>연장·조기 종료의 처리</h2>
+        <p>연장은 예약 단계에서 "연장 가능 여부"를 물어두는 게 좋아요. 금요일 밤이나 주말은 뒷타임이 꽉 차 있어서 연장 자체가 불가능한 경우도 있어요. 반대로, 조용한 시간대에는 연장하면 30분 단위로 잘라주는 곳도 있어요. 연속 가라오케 예약을 고려 중이라면, 연장 단위가 유연한지 확인해보세요.</p>
+        <span aria-hidden="true" data-t="F1B7E904">·</span>
+        <p>조기 종료도 미리 물어보세요. 3시간을 결제했는데 2시간만 사용하고 나갈 때, 남은 시간을 적립해주거나 다음 방문용 쿠폰으로 전환해주는 곳이 있어요. 이런 작은 차이가 <strong>다음에 다시 여길 선택하게 만드는 결정적 요인</strong>이 될 수 있어요.</p>
+
+        <h2>다음에 다시 이용할 때 남겨둘 기록</h2>
+        <p>비교하는 입장이라면, 지금 방문하는 곳의 "기록"을 의도적으로 남겨보세요. 어떤 방이 스피커가 좋았는지, 에어컨이 약했는지, 직원이 연장 안내를 친절하게 해주었는지. 메모장에 짧게 적어두면, 이게 쌓여서 내 취향에 맞는 연남 가라오케 리스트가 완성돼요.</p>
+        <p>방 번호나 담당 직원 이름보다는 <strong>"8호실은 저음이 좋다"</strong>, <strong>"B 타입 방은 소파가 넓어서 6인 이상에 좋다"</strong> 같은 구체적인 팩트가 더 쓸모 있어요. 다음 예약 때 이 기록을 꺼내 보면, 헤매는 시간을 아끼고 곧바로 만족스러운 선택으로 이어져요.</p>
+
+        <h2>인원·시점·목적별 정리</h2>
+        <p>4인 이하 소규모: 정산이 간단해서 굳이 사전 정산 룰을 복잡하게 둘 필요는 없지만, 연장 시 분당 과금이 있는 곳은 피하는 게 좋아요.<br>
+        6인 이상: 중간 퇴장/합류가 많기 때문에, 입장 전에 총액을 공유하고 개별 정산 앱을 켜는 게 거의 필수예요.<br>
+        주중 늦은 시간: 연장이 자유로운지, 아니면 1시간 단위로만 잘리는지 확인하세요. 조기 종료 적금이 가능한지도 중요한 포인트입니다.</p>
+        <span aria-hidden="true" data-t="D4C9A01E">●</span>
+        <p>목적이 회식인지, 친구끼리 스트레스 풀기인지에 따라서도 달라요. 회식은 정산을 명확하게 끊는 게 중요하고, 친구 모임은 연장 유연성이 더 중요해요. 목적에 맞게 정산과 연장 규칙을 미리 체크해두면, 마지막까지 기분 좋게 마무리할 수 있어요.</p>
+
+        <div class="x-grid-u2on">
+          실제로 여러 곳을 비교해본 분들의 최종 결정 기준은 '마지막 10분의 처리 방식'이었습니다. 
         </div>
-    </section>
 
-    <!-- 메인 콘텐츠 -->
-    <main>
-        <div class="container">
-            <h2 class="section-title">최신 포스트</h2>
+        <section class="k-nav-nh1w-section">
+          <h2>자주 묻는 질문</h2>
+          <div class="faq-item">
+            <div class="faq-question">Q. 연남 가라오케 예약 시 정산 기준을 미리 물어봐도 되나요?</div>
+            <p>네, 오히려 신뢰할 수 있는 신호입니다. 시간당 금액인지, 인당 금액인지, 추가 정산이 분 단위인지 확인해두면 나중에 불필요한 마찰을 피할 수 있어요.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">연장이 불가능할 때 대비 방법은?</div>
+            <p>예약할 때 "만약 자리가 안 끝나면 연장이 가능한가요?"를 미리 물어보세요. 불가능하다면 처음부터 1시간 정도 여유분을 더해서 예약하는 편이 안전해요.</p>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">조기 종료 시 환불이나 할인을 받을 수 있나요?</div>
+            <p>업체마다 정책이 다르지만, 예약 시 "일찍 나가면 어떻게 되나요?"라고 물으면 대부분 친절하게 안내해줍니다. 적립 형태로 남겨주는 곳도 있어요.</p>
+          </div>
+        </section>
+      </article>
 
-            <!-- 블로그 포스트 1편 -->
-            <article class="blog-post">
-                <h2>연남 가라오케 예약 시스템의 진화: 2024년 데이터로 본 프라이빗 파티 최적화 전략</h2>
-                <div class="blog-meta">
-                    <span>2024.12.15</span>
-                    <span>카테고리: 예약 가이드</span>
-                    <span>조회수: 2,847</span>
-                </div>
+      <aside>
+        <div class="n-body-wtal-card">
+          <h3>빠른 체크리스트</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li>✓ 정산 방식: 분/시간 단위</li>
+            <li>✓ 연장 가능 여부</li>
+            <li>✓ 조기 종료 환불 정책</li>
+            <li>✓ 방 번호·크기 기록</li>
+          </ul>
+        </div>
+        <div class="n-list-4zoj-bio">
+          <span class="n-list-4zoj-name">연락처 로컬 가이드, 정진호</span>
+          <p style="margin-top: 8px;">연남 일대에서 5년 넘게 모임 장소를 정리해온 로컬 가이드입니다. 객작적인 비교와 경험적 기록을 바탕으로 정보를 제공합니다.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
 
-                <p>연남동 가라오케 시장은 2023년 대비 <span class="data-highlight">예약 건수 34.7% 증가</span>하며 프라이빗 엔터테인먼트 공간의 수요가 폭발적으로 성장하고 있습니다. 본 블로그에서는 당사의 예약 데이터와 업계 통계를 기반으로, 최적의 예약 전략과 시스템 활용법을 상세히 분석합니다.</p>
+  <footer>
+    <div class="q-grid-tsx5">
+      <p>© 2025 연남 가라오케 예약 가이드. 모든 권리 보유.</p>
+      <p style="margin-top: 12px; font-size: 0.9rem;">연남 연속 예약을 위한 현실적인 팁을 제공합니다.</p>
+    </div>
+  </footer>
 
-                <blockquote>
-                    “연남 가라오케의 예약 시스템은 단순한 시간 예약을 넘어 공간의 물리적 특성과 음향 데이터를 통합한 브
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "연남 가라오케 예약 — 마지막 5분을 좌우하는 정산·연장·후 선택 가이드",
+      "description": "연남 가라오케 예약 전 비교 중인 분들을 위한 가이드. 정산 방식, 연장·조기 종료 처리, 다음 방문을 위한 기록을 다룹니다.",
+      "url": "https://yeonnam-song-rec.node-link.shop/",
+      "author": {
+        "@type": "Person",
+        "name": "정재호"
+      },
+      "mainEntity": [
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "연남 가라오케 예약 시 정산 기준을 미리 물어봐도 되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "네, 오히려 신뢰할 수 있는 신호입니다. 시간당 금액인지, 1인당 금액인지, 추가 시간이 분리별인지 확인해두면 불필요한 마찰을 피할 수 있어요."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "연장이 불가능할 때 대비 방법은?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "예약할 때 연장 가능 여부를 미리 물어보고, 불가능하다면 처음부터 여분을 더해 예약하는 편이 안전합니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "조기 종료 시 환불이나 할인을 받을 수 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "업체마다 다르지만 예약 시점에 문의하면 안내해줍니다. 적립금 형태로 남겨주는 곳도 있습니다."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "name": "연남 가라오케 예약 컨설팅",
+          "provider": {
+            "@type": "Organization",
+            "name": "연남 가라오케 예약 가이드"
+          }
+        }
+      ]
+    }
+  </script>
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-menu');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
